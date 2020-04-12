@@ -9,8 +9,8 @@ from bokeh.palettes import Category20
 from bokeh.models.annotations import Title, Legend
 from bokeh.models import LinearAxis, Range1d
 Category10 = Category20[14]
-# from bokeh.plotting import reset_output
-# reset_output()
+from bokeh.plotting import reset_output
+reset_output()
 
 # bv1 = pd.read_csv('datasets/bv1_sensors_rus_v3.csv')
 bv2 = pd.read_csv('datasets/bv2_sensors_rus_v4.csv')
@@ -83,7 +83,7 @@ checkboxes = CheckboxGroup(labels=list(['Секция №1 Заливная го
                                         'Секция №3 Датчик в сливной магистрали', 'Секция №3 Уровень НП',
                                         'Cекция №4 Заливная горловина', 'Секция №4 Датчик на дне отсека',
                                         'Секция №4 Датчик в сливной магистрали',]),
-                           active=[0,1,2,3,4,5,6,7,8,9,10])
+                           active=[0])
 callback = CustomJS(code="""aline.visible = false; // aline and etc.. are 
                             bline.visible = false; // passed in from args
                             cline.visible = false; 
