@@ -9,8 +9,8 @@ from bokeh.palettes import Category20
 from bokeh.models.annotations import Title, Legend
 from bokeh.models import LinearAxis, Range1d
 Category10 = Category20[14]
-from bokeh.plotting import reset_output
-reset_output()
+# from bokeh.plotting import reset_output
+# reset_output()
 
 # bv1 = pd.read_csv('datasets/bv1_sensors_rus_v3.csv')
 bv2 = pd.read_csv('datasets/bv2_sensors_rus_v4.csv')
