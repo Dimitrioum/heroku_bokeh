@@ -1,6 +1,6 @@
 import pandas as pd
 import numpy as np
-from bokeh.plotting import figure
+from bokeh.plotting import figure, curdoc
 from bokeh.io import output_file, show, output_notebook
 from bokeh.models import CustomJS
 from bokeh.models.widgets import CheckboxGroup
@@ -123,4 +123,4 @@ callback = CustomJS(code="""aline.visible = false; // aline and etc.. are
 checkboxes.js_on_click(callback)
 # output_file('BV2_DUT_sensors_134_sections.html')
 # show(column(p1, p2, checkboxes))
-show(row(p1, checkboxes))
+curdoc().add_root((row(p1, checkboxes)))
