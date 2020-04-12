@@ -1,3 +1,6 @@
 bokeh
 numpy
 pandas
+django
+gunicorn
+django-heroku
