@@ -9,6 +9,8 @@ from bokeh.palettes import Category20
 from bokeh.models.annotations import Title, Legend
 from bokeh.models import LinearAxis, Range1d
 Category10 = Category20[14]
+from bokeh.plotting import reset_output
+reset_output()
 
 bv1 = pd.read_csv('datasets/bv1_sensors_rus_v3.csv')
 # bv2 = pd.read_csv('datasets/bv2_sensors_rus_v4.csv')
@@ -121,6 +123,10 @@ callback = CustomJS(code="""aline.visible = false; // aline and etc.. are
                                   'eline': eline, 'fline': fline, 'gline': gline, 'hline': hline,
                                   'iline': iline, 'jline': jline, 'kline': kline})
 checkboxes.js_on_click(callback)
+layout = row(p1, checkboxes)
 # output_file('BV2_DUT_sensors_134_sections.html')
 # show(column(p1, p2, checkboxes))
-curdoc().add_root((row(p1, checkboxes)))
+curdoc().add_root(layout)
+curdoc().title="BV2"
+
+show(layout)
