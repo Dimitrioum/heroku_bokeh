@@ -12,8 +12,8 @@ Category10 = Category20[14]
 from bokeh.plotting import reset_output
 reset_output()
 
-bv1 = pd.read_csv('datasets/bv1_sensors_rus_v3.csv')
-# bv2 = pd.read_csv('datasets/bv2_sensors_rus_v4.csv')
+# bv1 = pd.read_csv('datasets/bv1_sensors_rus_v3.csv')
+bv2 = pd.read_csv('datasets/bv2_sensors_rus_v4.csv')
 
 #bv1['время формирования точки на БВ'] = pd.to_datetime(bv1['время формирования точки на БВ'])
 #bv1['время прихода точки на сервере'] = pd.to_datetime(bv1['время прихода точки на сервере'])
