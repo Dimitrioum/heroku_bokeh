@@ -12,14 +12,14 @@ Category10 = Category20[14]
 # from bokeh.plotting import reset_output
 # reset_output()
 
-# bv1 = pd.read_csv('datasets/bv1_sensors_rus_v3.csv')
-bv2 = pd.read_csv('datasets/bv2_sensors_rus_v4.csv')
+bv1 = pd.read_csv('datasets/bv1_sensors_rus_v3.csv')
+# bv2 = pd.read_csv('datasets/bv2_sensors_rus_v4.csv')
 
-#bv1['время формирования точки на БВ'] = pd.to_datetime(bv1['время формирования точки на БВ'])
-#bv1['время прихода точки на сервере'] = pd.to_datetime(bv1['время прихода точки на сервере'])
+bv1['время формирования точки на БВ'] = pd.to_datetime(bv1['время формирования точки на БВ'])
+bv1['время прихода точки на сервере'] = pd.to_datetime(bv1['время прихода точки на сервере'])
 
-bv2['время формирования точки на БВ'] = pd.to_datetime(bv2['время формирования точки на БВ'])
-bv2['время прихода точки на сервере'] = pd.to_datetime(bv2['время прихода точки на сервере'])
+# bv2['время формирования точки на БВ'] = pd.to_datetime(bv2['время формирования точки на БВ'])
+# bv2['время прихода точки на сервере'] = pd.to_datetime(bv2['время прихода точки на сервере'])
 
 df = bv1[(bv1['Секция №1 Температура НП, t°'] < bv1['Секция №1 Температура НП, t°'].quantile(.96))
     & (bv1['Секция №3 Температура НП, t°'] < bv1['Секция №3 Температура НП, t°'].quantile(.83))]
