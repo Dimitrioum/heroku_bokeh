@@ -142,10 +142,11 @@ callback = CustomJS(code="""aline.visible = false; // aline and etc.. are
                              if (cb_obj.active.includes(14)){kkline.visible = true;} 
                                 // 1 index box is bline
                             """,
-                            args={'aline': aline, 'bline': bline, 'cline': cline, 'dline': dline,
-                                  'eline': eline, 'fline': fline, 'gline': gline, 'hline': hline,
-                                  'iline': iline, 'jline': jline, 'kline': kline, 'ccline': ccline, 'ddline': ddline,
-                                  'ggline': ggline, 'kkline': kkline})
+                            args={'aline': aline, 'bline': bline, 'cline': cline, 'ccline': ccline,
+                                  'dline': dline, 'ddline': ddline, 
+                                  'eline': eline, 'fline': fline, 'gline': gline, 'ggline': ggline,
+                                  'hline': hline,'iline': iline, 'jline': jline, 'kline': kline,
+                                   'kkline': kkline})
 checkboxes.js_on_click(callback)
 layout = row(p1, checkboxes)
 # output_file('BV2_DUT_sensors_134_sections.html')
