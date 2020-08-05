@@ -28,7 +28,7 @@ df = bv2[(bv2['Cекция №1 Уровень НП'] < bv2['Cекция №1 У
 
 df['время формирования точки на БВ'] = pd.to_datetime(df['время формирования точки на БВ'], format='%d/%m/%Y')
 
-p1 = figure(x_axis_type='datetime', scale_both=True)
+p1 = figure(x_axis_type='datetime', sizing_mode='scale_both')
 p1.extra_y_ranges = {"binary": Range1d(start=-2, end=2)}
 aline = p1.circle(df['время формирования точки на БВ'], df['Cекция №1 Заливная горловина'], line_width=2, color=Category10[0],
                  y_range_name="binary")
