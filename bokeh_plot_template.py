@@ -84,7 +84,7 @@ legend = Legend(items=[
 ], location=(0, 250))
 
 t = Title()
-t.text = 'BOKEH_TEMPLATE'
+t.text = 'BOKEH_TEMPLATE_EMOTION_REC'
 p1.title = t
 # p2.title = t
 p1.add_layout(legend, 'left')
