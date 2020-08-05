@@ -28,7 +28,7 @@ df = bv2[(bv2['Cекция №1 Уровень НП'] < bv2['Cекция №1 У
 
 df['время формирования точки на БВ'] = pd.to_datetime(df['время формирования точки на БВ'], format='%d/%m/%Y')
 
-p1 = figure(x_axis_type='datetime', plot_width=2500)
+p1 = figure(x_axis_type='datetime', scale_both=True)
 p1.extra_y_ranges = {"binary": Range1d(start=-2, end=2)}
 aline = p1.circle(df['время формирования точки на БВ'], df['Cекция №1 Заливная горловина'], line_width=2, color=Category10[0],
                  y_range_name="binary")
@@ -60,44 +60,44 @@ kkline = p1.circle(df['время формирования точки на БВ'
 # p2 = figure(x_axis_type='datetime', plot_width=10000)
 # eline = p1.circle(df['время прихода точки на сервере'], df['Скорость'], line_width=2, color=Viridis6[5])
 
-p1.yaxis.axis_label = 'Открытие/Закрытие/Уровень НП'
-p1.xaxis.axis_label = 'время'
+p1.yaxis.axis_label = 'Бинарные/Действительные значения'
+p1.xaxis.axis_label = 'временная шкала'
 # p2.yaxis.axis_label = 'Скорость'
 # p2.xaxis.axis_label = 'время формирования точки на БВ'
 
 legend = Legend(items=[
-    ("Секция №1 Заливная горловина", [aline]),
-    ("Секция №1 Датчик на дне отсека", [bline]),
-    ("Секция №1 Датчик в сливной магистрали", [cline]),
-    ("Секция №1 Датчик на уровне планки", [ccline]),
-    ("Секция №1 Уровень НП", [dline]),
-    ("Секция №2 Датчик на уровне планки", [ddline]),
-    ("Cекция №3 Заливная горловина", [eline]),
-    ("Секция №3 Датчик на дне отсека", [fline]),
-    ("Секция №3 Датчик в сливной магистрали", [gline]),
-    ("Секция №3 Датчик на уровне планки", [ggline]),
-    ("Секция №3 Уровень НП", [hline]),
-    ("Cекция №4 Заливная горловина", [iline]),
-    ("Секция №4 Датчик на дне отсека", [jline]),
-    ("Секция №4 Датчик в сливной магистрали", [kline]),
-    ("Секция №4 Датчик на уровне планки", [kkline]),
+    ("Binary 1", [aline]),
+    ("Binary 2", [bline]),
+    ("Binary 3", [cline]),
+    ("Binary 4", [ccline]),
+    ("Real 1", [dline]),
+    ("Binary 5", [ddline]),
+    ("Binary 6", [eline]),
+    ("Binary 7", [fline]),
+    ("Binary 8", [gline]),
+    ("Binary 9", [ggline]),
+    ("Real 2", [hline]),
+    ("Binary 10", [iline]),
+    ("Binary 11", [jline]),
+    ("Binary 12", [kline]),
+    ("Binary 13", [kkline]),
 ], location=(0, 250))
 
 t = Title()
-t.text = 'BV2_DUT_sensors'
+t.text = 'BOKEH_TEMPLATE'
 p1.title = t
 # p2.title = t
 p1.add_layout(legend, 'left')
 p1.add_layout(LinearAxis(y_range_name="binary"), 'right')
 # p2.add_layout(legend, 'left')
-checkboxes = CheckboxGroup(labels=list(['Секция №1 Заливная горловина', 'Секция №1 Датчик на дне отсека',
-                                        'Секция №1 Датчик в сливной магистрали', "Секция №1 Датчик на уровне планки",
-                                        'Секция №1 Уровень НП', "Секция №2 Датчик на уровне планки",
-                                        'Cекция №3 Заливная горловина', 'Секция №3 Датчик на дне отсека',
-                                        'Секция №3 Датчик в сливной магистрали', "Секция №1 Датчик на уровне планки",
-                                        'Секция №3 Уровень НП',
-                                        'Cекция №4 Заливная горловина', 'Секция №4 Датчик на дне отсека',
-                                        'Секция №4 Датчик в сливной магистрали', "Секция №4 Датчик на уровне планки"]),
+checkboxes = CheckboxGroup(labels=list(['Binary 1', 'Binary 2',
+                                        'Binary 3', "Binary 4",
+                                        'Real 1', "Binary 5",
+                                        'Binary 6', 'Binary 7',
+                                        'Binary 8', "Binary 9",
+                                        'Real 2',
+                                        'Binary 10', 'Binary 11',
+                                        'Binary 12', "Binary 13"]),
                            active=[0])
 callback = CustomJS(code="""aline.visible = false; // aline and etc.. are 
                             bline.visible = false; // passed in from args
@@ -152,6 +152,6 @@ layout = row(p1, checkboxes)
 # output_file('BV2_DUT_sensors_134_sections.html')
 # show(column(p1, p2, checkboxes))
 curdoc().add_root(layout)
-curdoc().title="BV2"
+curdoc().title="BOKEH_TEMPLATE"
 
 show(layout)
